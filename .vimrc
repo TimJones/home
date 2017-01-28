@@ -1,0 +1,74 @@
+" Install vim-plug if not already installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+" Colorscheme
+Plug 'altercation/vim-colors-solarized'
+
+" Syntax
+Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-git', { 'for': 'git' }
+Plug 'tpope/vim-markdown', { 'for': 'markdown'}
+Plug 'saltstack/salt-vim', { 'for': 'SaltFile' }
+Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
+
+" Quick git diff
+Plug 'airblade/vim-gitgutter'
+
+" Insanely good git wrapper
+Plug 'tpope/vim-fugitive'
+
+" Good config
+Plug 'tpope/vim-sensible'
+
+" Better (simple) file explorer
+Plug 'tpope/vim-vinegar'
+
+" Quickly modify 'surrondings', like brackets, quotes *ML tags
+Plug 'tpope/vim-surround'
+
+" Lots of support for quickly (un)commenting
+Plug 'tpope/vim-commentary'
+
+" Better statusline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" SublimeText-like multiple cursors
+Plug 'terryma/vim-multiple-cursors'
+
+filetype plugin indent on
+call plug#end()
+
+" Set colorscheme
+set background=light
+colorscheme solarized
+
+" Configure airline to use powerline fonts
+let g:airline_powerline_fonts=1
+
+" Recommended Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_alows_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+
+" Always use line numbers
+set number
+
+" Ignore case in search unless upper-case is used
+set ignorecase
+set smartcase
+
+" Show control cahracters
+set list
+
+" Mouse support
+set mouse=a
