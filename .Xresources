@@ -55,3 +55,14 @@
 !! white dark/light
 *color7:                S_base2
 *color15:               S_base3
+
+!!! Xft
+Xft.autohint:0
+Xft.hintstyle:hintfull
+Xft.hinting:1
+Xft.antialias:1
+Xft.rgba:rgb
+
+!!! URxvt
+URxvt*font:xft:Hack:size=10
+URxvt*letterspace:-1
