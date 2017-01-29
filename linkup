@@ -16,7 +16,7 @@ case "${response}" in
     find "${script_dir}/dotfiles" -type f -printf "%P\n" | while read file; do
       dotfile="${HOME}/.${file}"
       echo -n "Linking ${file} to ${dotfile}..."
-      mkdir -p $(basename ${dotfile})
+      mkdir -p $(dirname ${dotfile})
       ln -sf "${script_dir}/dotfiles/${file}" "${dotfile}"
       echo "Done."
     done
