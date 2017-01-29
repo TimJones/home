@@ -3,3 +3,6 @@
 	name = Tim Jones
 [core]
 	excludesfile = ~/.gitglobalignore
+	trustctime = false
+[push]
+	default = simple
