@@ -9,3 +9,4 @@
 .xsession*
 .zcompdump
 .zhistory
+.cache/
