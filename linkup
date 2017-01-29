@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -e
+
+echo "This script will clobber your profile"
+echo "Setting up links over known dotfiles"
+echo "and adding a local script directory"
+read -r -p "Are you sure you want to continue [y/N] " response
+
+pushd $(dirname $0) > /dev/null
+script_dir=$(pwd)
+popd > /dev/null
+
+case "${response}" in
+  [yY][eE][sS]|[yY])
+    for file in ${script_dir}/dotfiles/*; do
+      dotfile="${HOME}/.$(basename ${file})"
+      echo -n "Linking ${file} to ${dotfile}..."
+      [[ -f "${dotfile}" ]] && rm "${dotfile}"
+      ln -s "${file}" "${dotfile}"
+      echo "Done."
+    done
+    ;;
+  *)
+    echo "Aborting..."
+    ;;
+esac
+
