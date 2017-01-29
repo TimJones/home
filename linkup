@@ -13,11 +13,11 @@ popd > /dev/null
 
 case "${response}" in
   [yY][eE][sS]|[yY])
-    for file in ${script_dir}/dotfiles/*; do
-      dotfile="${HOME}/.$(basename ${file})"
+    find "${script_dir}/dotfiles" -type f -printf "%P\n" | while read file; do
+      dotfile="${HOME}/.${file}"
       echo -n "Linking ${file} to ${dotfile}..."
-      [[ -f "${dotfile}" ]] && rm "${dotfile}"
-      ln -s "${file}" "${dotfile}"
+      mkdir -p $(basename ${dotfile})
+      ln -sf "${script_dir}/dotfiles/${file}" "${dotfile}"
       echo "Done."
     done
     ;;
