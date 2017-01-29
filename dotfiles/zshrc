@@ -1,3 +1,7 @@
+# General ZSH options
+setopt appendhistory autocd extendedglob
+
+# Antigen plugin manager
 antigen="${HOME}/.antigen.zsh"
 
 if [ ! -f "${antigen}" ]; then
