@@ -4,5 +4,6 @@
 [core]
 	excludesfile = ~/.gitglobalignore
 	trustctime = false
+	editor = vim
 [push]
 	default = simple
