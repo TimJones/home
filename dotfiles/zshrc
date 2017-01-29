@@ -19,4 +19,22 @@ case "$TERM" in;
     ;;
 esac
 
+antigen use oh-my-zsh
+
+antigen bundles <<EOB
+archlinux
+aws
+common-aliases
+command-not-found
+docker
+docker-compose
+git
+history
+systemd
+tig
+zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+EOB
+
 antigen apply
