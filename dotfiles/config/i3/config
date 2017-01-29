@@ -1,0 +1,175 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+
+# Workspaces
+set $ws_music "10:Music "
+set $ws_music_num 0
+set $ws_scratch "1:Arch "
+set $ws_scratch_num 1
+set $ws_term "2:Terminal "
+set $ws_term_num 2
+set $ws_edit "3:Editor "
+set $ws_edit_num 3
+set $ws_web "4:Web "
+set $ws_web_num 4
+set $ws_chat "5:Chat "
+set $ws_chat_num 5
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+
+# screen locker
+set $lock i3lock-wrapper -ef && sleep 1
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:Hack, FontAwesome 6
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start rofi (a program launcher)
+bindsym $mod+d exec rofi -show run
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# move workspace
+bindsym $mod+Mod1+Left move workspace to output left
+bindsym $mod+Mod1+Down move workspace to output down
+bindsym $mod+Mod1+Up move workspace to output up
+bindsym $mod+Mod1+Right move workspace to output right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+$ws_scratch_num workspace $ws_scratch
+bindsym $mod+$ws_term_num workspace $ws_term
+bindsym $mod+$ws_edit_num workspace $ws_edit
+bindsym $mod+$ws_web_num workspace $ws_web
+bindsym $mod+$ws_chat_num workspace $ws_chat
+bindsym $mod+$ws_music_num workspace $ws_music
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+
+# move focused container to workspace
+bindsym $mod+Shift+$ws_scratch_num move container to workspace $ws_scratch
+bindsym $mod+Shift+$ws_web_num move container to workspace $ws_web
+bindsym $mod+Shift+$ws_term_num move container to workspace $ws_term
+bindsym $mod+Shift+$ws_edit_num move container to workspace $ws_edit
+bindsym $mod+Shift+$ws_chat_num move container to workspace $ws_chat
+bindsym $mod+Shift+$ws_music_num move container to workspace $ws_music
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        status_command py3status
+}
+
+# Allow basic system control
+set $mode_system System (l)ock, lo(g)out, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym g exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+x mode "$mode_system"
+
+# Screensaver
+
+# Force certain windows to start in specific workspaces
+assign [class="Firefox"] $ws_web
+assign [class="Chromium"] $ws_web
+assign [class="Gvim"] $ws_edit
+assign [class="URxvt"] $ws_term
+assign [class="Franz"] $ws_chat
+assign [class="Spotify"] $ws_music
+
+# Set up layouts for specific window classes
+for_window [class="URxvt"] focus child, layout stacking, focus
+for_window [class="Firefox"] focus child, layout tabbed, focus
+for_window [class="Chromium"] focus child, layout tabbed, focus
