@@ -5,7 +5,6 @@ setopt appendhistory autocd extendedglob
 antigen="${HOME}/.antigen.zsh"
 
 if [ ! -f "${antigen}" ]; then
-  #curl -s https://api.github.com/repos/zsh-users/antigen/tarball | tar -zxO zsh-users-antigen-4c09d6f/antigen.zsh > "${antigen}"
   curl -fLo "${antigen}" https://github.com/zsh-users/antigen/releases/download/v1.3.4/antigen.zsh
 fi
 
