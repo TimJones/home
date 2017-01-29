@@ -56,6 +56,9 @@
 *color7:                S_base2
 *color15:               S_base3
 
+!!! Global settings
+*font: xft:Hack:size=10,xft:Awesome:size=10
+
 !!! Xft
 Xft.autohint:0
 Xft.hintstyle:hintfull
@@ -64,5 +67,4 @@ Xft.antialias:1
 Xft.rgba:rgb
 
 !!! URxvt
-URxvt*font:xft:Hack:size=10
 URxvt*letterspace:-1
