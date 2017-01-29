@@ -1,0 +1,5 @@
+[user]
+	email = tim@freakinabox.com
+	name = Tim Jones
+[core]
+	excludesfile = ~/.gitglobalignore
