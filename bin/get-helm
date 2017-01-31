@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
 
-curl http://storage.googleapis.com/kubernetes-helm/helm-$(curl -s https://api.github.com/repos/kubernetes/helm/releases/latest | awk '/\"tag_name\":/{gsub( /[,\"]/,"", $2); print $2}')-linux-amd64.tar.gz | tar -xzO linux-amd64/helm > ~/bin/helm
+version=$(curl -s https://api.github.com/repos/kubernetes/helm/releases/latest | awk '/\"tag_name\":/{gsub( /[,\"]/,"", $2); print $2}')
+curl http://storage.googleapis.com/kubernetes-helm/helm-${version}-linux-amd64.tar.gz | tar -xzO linux-amd64/helm > ~/bin/helm
 chmod +x ~/bin/helm
