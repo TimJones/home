@@ -1,4 +1,5 @@
 # For documentation, see /usr/share/dunst/dunstrc
+# Colours are Solarized Dark, http://ethanschoonover.com/solarized
 [global]
     font = "Hack 16"
     allow_markup = yes
@@ -29,8 +30,8 @@
     icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
 [frame]
-    width = 3
-    color = "#aaaaaa"
+    width = 1
+    color = "#073642"
 
 [shortcuts]
     close = ctrl+space
@@ -39,16 +40,16 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#222222"
-    foreground = "#888888"
+    background = "#002b36"
+    foreground = "#586e75"
     timeout = 10
 
 [urgency_normal]
-    background = "#285577"
-    foreground = "#ffffff"
+    background = "#002b36"
+    foreground = "#93a1a1"
     timeout = 10
 
 [urgency_critical]
-    background = "#900000"
-    foreground = "#ffffff"
+    background = "#002b36"
+    foreground = "#dc322f"
     timeout = 0
