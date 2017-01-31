@@ -51,7 +51,7 @@ Xft.rgba:rgb
 URxvt*letterspace:-1
 
 !!! Rofi
-rofi.font: Hack 12
+rofi.font: Hack 16
 
 !!! Add any local resources
 #include ".Xlocalresources"
