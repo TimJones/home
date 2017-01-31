@@ -13,7 +13,7 @@ popd > /dev/null
 
 case "${response}" in
   [yY][eE][sS]|[yY])
-    find "${script_dir}/dotfiles" -type f -printf "%P\n" | while read file; do
+    find "${script_dir}/dotfiles" -type f -not -name ".*" -printf "%P\n" | while read file; do
       dotfile="${HOME}/.${file}"
       echo -n "Linking ${file} to ${dotfile}..."
       mkdir -p $(dirname ${dotfile})
