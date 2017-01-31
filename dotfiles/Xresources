@@ -68,3 +68,6 @@ Xft.rgba:rgb
 
 !!! URxvt
 URxvt*letterspace:-1
+
+!!! Add any local resources
+#include ".Xlocalresources"
