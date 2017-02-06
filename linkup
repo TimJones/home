@@ -28,7 +28,10 @@ popd > /dev/null
 
 case "${response}" in
   [yY][eE][sS]|[yY])
+    echo "Linking dotfiles"
     linkup "${script_dir}/dotfiles" "${HOME}" "."
+    echo "Linking scripts"
+    linkup "${script_dir}/scripts" "${HOME}/bin"
     ;;
   *)
     echo "Aborting..."
