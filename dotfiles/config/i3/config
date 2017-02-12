@@ -17,10 +17,11 @@ set $ws_web "4:Web "
 set $ws_web_num 4
 set $ws_chat "5:Chat "
 set $ws_chat_num 5
+set $ws_games "9:Games "
+set $ws_games_num 9
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
 
 # screen locker
 set $lock i3lock-wrapper -ef && sleep 1
@@ -92,10 +93,10 @@ bindsym $mod+$ws_edit_num workspace $ws_edit
 bindsym $mod+$ws_web_num workspace $ws_web
 bindsym $mod+$ws_chat_num workspace $ws_chat
 bindsym $mod+$ws_music_num workspace $ws_music
+bindsym $mod+$ws_games_num workspace $ws_games
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
 
 # move focused container to workspace
 bindsym $mod+Shift+$ws_scratch_num move container to workspace $ws_scratch
@@ -104,10 +105,10 @@ bindsym $mod+Shift+$ws_term_num move container to workspace $ws_term
 bindsym $mod+Shift+$ws_edit_num move container to workspace $ws_edit
 bindsym $mod+Shift+$ws_chat_num move container to workspace $ws_chat
 bindsym $mod+Shift+$ws_music_num move container to workspace $ws_music
+bindsym $mod+Shift+$ws_games_num move container to workspace $ws_games
 bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -168,9 +169,11 @@ assign [class="Gvim"] $ws_edit
 assign [class="URxvt"] $ws_term
 assign [class="Franz"] $ws_chat
 assign [class="Spotify"] $ws_music
+assign [class="Steam"] $ws_games
 
 # Set up layouts for specific window classes
 for_window [class="Gvim"] focus child, layout stacking, focus
 for_window [class="URxvt"] focus child, layout stacking, focus
 for_window [class="Firefox"] focus child, layout tabbed, focus
 for_window [class="Chromium"] focus child, layout tabbed, focus
+for_window [class="Steam"] focus child, layout stacking, focus
