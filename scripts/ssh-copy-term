@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e -u
+
+[ "${#}" -ne 1 ] && echo "You need to pass the SSH server as an argument" && exit 1
+
+remote=${1}
+
+ssh ${remote} 'mkdir -p  ~/.terminfo/${TERM:0:1}'
+scp /usr/share/terminfo/${TERM:0:1}/$TERM ${remote}:~/.terminfo/${TERM:0:1}/
