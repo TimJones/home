@@ -72,3 +72,12 @@ set list
 
 " Mouse support
 set mouse=a
+
+" Whitespace helper
+fun! TrimWhiteSpace()
+	let l:save = winsaveview()
+	%s/\s\+$//e
+	call winrestview(l:save)
+endfun
+command! TrimWhitespace call TrimWhitespace()
+noremap <Leader>w :call TrimWhitespace()<CR>
