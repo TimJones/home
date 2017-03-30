@@ -43,3 +43,6 @@ StackExchange/blackbox
 EOB
 
 antigen apply
+
+# Manual config/overrides
+setopt appendhistory autocd
