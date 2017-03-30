@@ -1,0 +1,8 @@
+Host *
+    ServerAliveInterval 30
+    ServerAliveCountMax 90
+    ControlMaster auto
+    ControlPersist yes
+    ControlPath ~/.ssh/socks/%r@%h:%p
+
+Include config.d/*

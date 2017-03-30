@@ -8,11 +8,11 @@ function linkup
   local dest=$2
   local prefix=$3
 
-  find "${src}" -type f -not -name ".*" -printf "%P\n" | while read file; do
+  find "${src}" -type f -not -name ".*" -printf "%P\n" -or -name ".gitkeep" -printf "%P\n" | while read file; do
     newfile="${dest}/${prefix}${file}"
     echo -n "Linking ${file} to ${newfile}..."
     mkdir -p $(dirname ${newfile})
-    ln -sf "${src}/${file}" "${newfile}"
+    [ "$(basename ${file})" != ".gitkeep" ] && ln -sf "${src}/${file}" "${newfile}"
     echo "Done."
   done
 }
