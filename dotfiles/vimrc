@@ -1,7 +1,7 @@
 " Install vim-plug if not already installed
 if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -67,14 +67,14 @@ set number
 set ignorecase
 set smartcase
 
-" Show control cahracters
+" Show control characters
 set list
 
 " Mouse support
 set mouse=a
 
 " Whitespace helper
-fun! TrimWhiteSpace()
+fun! TrimWhitespace()
 	let l:save = winsaveview()
 	%s/\s\+$//e
 	call winrestview(l:save)

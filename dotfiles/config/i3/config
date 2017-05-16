@@ -157,7 +157,6 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
 bindsym $mod+x mode "$mode_system"
 
 # Screensaver

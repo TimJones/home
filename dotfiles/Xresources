@@ -41,17 +41,17 @@
 *color15:               S_base3
 
 !!! Xft
-Xft.autohint:0
-Xft.hintstyle:hintfull
-Xft.hinting:1
-Xft.antialias:1
-Xft.rgba:rgb
+Xft.autohint:	0
+Xft.hintstyle:	hintfull
+Xft.hinting:	1
+Xft.antialias:	1
+Xft.rgba:	rgb
 
 !!! URxvt
-URxvt*letterspace:-1
+URxvt*letterspace:	-1
 
 !!! Rofi
-rofi.font: Hack 16
+rofi.font:	Hack 16
 
 !!! Add any local resources
 #include ".Xlocalresources"
