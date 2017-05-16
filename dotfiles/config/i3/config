@@ -168,6 +168,7 @@ assign [class="Chromium"] $ws_web
 assign [class="Gvim"] $ws_edit
 assign [class="URxvt"] $ws_term
 assign [class="Franz"] $ws_chat
+assign [class="Rambox"] $ws_chat
 assign [class="Spotify"] $ws_music
 assign [class="Steam"] $ws_games
 
