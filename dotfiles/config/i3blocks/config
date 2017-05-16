@@ -17,6 +17,10 @@ interval=30
 label=CPU
 interval=5
 min_width=CPU: 100.00%
+separator=false
+
+[load_average]
+interval=5
 
 [memory]
 label=MEM
