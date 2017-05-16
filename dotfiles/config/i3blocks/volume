@@ -1,7 +1,16 @@
 STEP="5"
 
 volume() {
-  pamixer --get-volume
+  vol=$(pamixer --get-volume)
+  echo ${vol}
+  echo ${vol}
+  if $(pamixer --get-mute); then
+    echo "#696969"
+  elif [[ ${vol} -ge 80 ]]; then
+    echo "#FF0000"
+  else
+    echo "#FFFFFF"
+  fi
 }
 
 case $BLOCK_BUTTON in
