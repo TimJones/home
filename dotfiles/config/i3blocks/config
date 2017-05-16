@@ -36,6 +36,17 @@ interval=30
 label=HOME
 interval=30
 
+[wifi-name]
+command=~/.config/i3blocks/wifi-name
+label=
+interval=60
+instance=wlp3s0
+separator=false
+
+[wifi]
+interval=15
+instance=wlp3s0
+
 [time]
 command=date '+%Y-%m-%d %H:%M'
 interval=5
