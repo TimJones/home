@@ -164,6 +164,7 @@ bindsym $mod+x mode "$mode_system"
 # Force certain windows to start in specific workspaces
 assign [class="Firefox"] $ws_web
 assign [class="Chromium"] $ws_web
+assign [class="Google-chrome"] $ws_web
 assign [class="Gvim"] $ws_edit
 assign [class="URxvt"] $ws_term
 assign [class="Franz"] $ws_chat
