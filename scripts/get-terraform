@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+version=$(curl -s https://api.github.com/repos/hashicorp/terraform/releases/latest | awk '/\"tag_name\":/{gsub( /[,\"v]/,"", $2); print $2}')
+terraform_zip=$(mktemp terraform-XXXXXXXXXX.zip)
+curl -o ${terraform_zip} -L https://releases.hashicorp.com/terraform/${version}/terraform_${version}_linux_amd64.zip
+unzip -o -d ~/bin ${terraform_zip} terraform
+rm ${terraform_zip}
