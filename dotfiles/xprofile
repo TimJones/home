@@ -1,1 +1,2 @@
+xrandr | grep -q eDP1 && xrandr --dpi 144
 xbindkeys
