@@ -60,3 +60,6 @@ if grep --quiet Microsoft /proc/version 2>/dev/null; then
   # Add missing ~/.profile stuff
   source "${HOME}/.zprofile"
 fi
+
+type kubectl > /dev/null && source <(kubectl completion zsh)
+type helm > /dev/null && source <(helm completion zsh)
