@@ -48,17 +48,13 @@ antigen apply
 setopt appendhistory autocd
 
 # WSL workarounds
-if grep --quiet Microsoft /proc/version 2>/dev/null; then
-  # Set correct umask
-  # https://github.com/Microsoft/WSL/issues/352
-  [[ "$(umask)" == "000" ]] && umask 022
+if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+  # Add missing ~/.profile stuff
+  source "${HOME}/.zprofile"
 
   # Prevent ZSH from changing the priority of the background processes with nice.
   # https://github.com/Microsoft/WSL/issues/1887
   unsetopt BG_NICE
-
-  # Add missing ~/.profile stuff
-  source "${HOME}/.zprofile"
 fi
 
 type kubectl > /dev/null && source <(kubectl completion zsh)

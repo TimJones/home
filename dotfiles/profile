@@ -1,8 +1,12 @@
 export EDITOR=vim
 export VISUAL=gvim
 
+# WSL workarounds
 if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
-  # We're in WSL
+  # Set correct umask
+  # https://github.com/Microsoft/WSL/issues/352
+  [[ "$(umask)" == "000" ]] && umask 022
+
   export DOCKER_HOST=localhost:2375
 fi
 
