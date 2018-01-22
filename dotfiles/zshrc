@@ -63,3 +63,15 @@ fi
 
 type kubectl > /dev/null && source <(kubectl completion zsh)
 type helm > /dev/null && source <(helm completion zsh)
+
+alias kubectl-ares='kubectl --context ares'
+alias helm-ares='helm --kube-context ares'
+alias kubevault-ares='kubevault --context ares --namespace devops-tools vault'
+alias fly-sah='fly -t sah'
+
+alias kubectl-hades='kubectl --context hades'
+alias kubevault-hades='kubevault --context hades --namespace devops-tools vault'
+
+alias kubectl-aurora='kubectl --context demerzel.k8s.infra.dreyhub.net'
+alias helm-aurora='helm --kube-context demerzel.k8s.infra.dreyhub.net'
+alias fly-aurora='fly-v3.6 -t aurora'
