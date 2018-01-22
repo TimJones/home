@@ -81,3 +81,8 @@ fun! TrimWhitespace()
 endfun
 command! TrimWhitespace call TrimWhitespace()
 noremap <Leader>w :call TrimWhitespace()<CR>
+
+" Ensure correct font
+if has('gui_running')
+	set guifont=Hack\ 14
+endif
