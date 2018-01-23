@@ -1,3 +1,25 @@
+# WSL workarounds
+# WSL is an interactive, non-login shell hence the need fix stuff here
+if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+  # Add missing ~/.profile stuff
+  source "${HOME}/.zprofile"
+
+  # Prevent ZSH from changing the priority of the background processes with nice.
+  # https://github.com/Microsoft/WSL/issues/1887
+  unsetopt BG_NICE
+
+  # Set correct umask
+  # https://github.com/Microsoft/WSL/issues/352
+  [[ "$(umask)" == "000" ]] && umask 022
+
+  # Use Docker for Windows (HyperV machine)
+  export DOCKER_HOST=localhost:2375
+  if [ ! -d "/c" ]; then
+    # docker-compose mounts a different path :(
+    sudo mount --bind /mnt/c /c
+  fi
+fi
+
 # Antigen plugin manager
 antigen="${HOME}/.antigen.zsh"
 
@@ -40,28 +62,6 @@ StackExchange/blackbox
 EOB
 
 antigen apply
-
-# WSL workarounds
-# WSL is an interactive, non-login shell hence the need fix stuff here
-if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
-  # Add missing ~/.profile stuff
-  source "${HOME}/.zprofile"
-
-  # Prevent ZSH from changing the priority of the background processes with nice.
-  # https://github.com/Microsoft/WSL/issues/1887
-  unsetopt BG_NICE
-
-  # Set correct umask
-  # https://github.com/Microsoft/WSL/issues/352
-  [[ "$(umask)" == "000" ]] && umask 022
-
-  # Use Docker for Windows (HyperV machine)
-  export DOCKER_HOST=localhost:2375
-  if [ ! -d "/c" ]; then
-    # docker-compose mounts a different path :(
-    sudo mount --bind /mnt/c /c
-  fi
-fi
 
 # Manual config/overrides
 setopt appendhistory autocd extendedglob
