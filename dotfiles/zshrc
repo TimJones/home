@@ -29,18 +29,6 @@ fi
 
 source "${antigen}"
 
-case "$TERM" in;
-  *256color)
-    POWERLEVEL9K_COLOR_SCHEME=light
-    POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
-    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs history)
-    POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-    POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="%(!.#.$) "
-    antigen theme bhilburn/powerlevel9k powerlevel9k
-    ;;
-esac
-
 antigen use oh-my-zsh
 
 antigen bundles <<EOB
@@ -60,6 +48,18 @@ zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
 StackExchange/blackbox
 EOB
+
+case "$TERM" in;
+  *256color)
+    POWERLEVEL9K_COLOR_SCHEME=light
+    POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
+    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs history)
+    POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+    POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="%(!.#.$) "
+    antigen theme bhilburn/powerlevel9k powerlevel9k
+    ;;
+esac
 
 antigen apply
 
