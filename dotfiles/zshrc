@@ -5,7 +5,7 @@ setopt appendhistory autocd extendedglob
 antigen="${HOME}/.antigen.zsh"
 
 if [ ! -f "${antigen}" ]; then
-  curl -fLo "${antigen}" https://github.com/zsh-users/antigen/releases/download/v1.3.4/antigen.zsh
+  curl -fLo "${antigen}" git.io/antigen
 fi
 
 source "${antigen}"
