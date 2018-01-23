@@ -1,6 +1,3 @@
-# General ZSH options
-setopt appendhistory autocd extendedglob
-
 # Antigen plugin manager
 antigen="${HOME}/.antigen.zsh"
 
@@ -44,9 +41,6 @@ EOB
 
 antigen apply
 
-# Manual config/overrides
-setopt appendhistory autocd
-
 # WSL workarounds
 # WSL is an interactive, non-login shell hence the need fix stuff here
 if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
@@ -63,7 +57,14 @@ if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
 
   # Use Docker for Windows (HyperV machine)
   export DOCKER_HOST=localhost:2375
+  if [ ! -d "/c" ]; then
+    # docker-compose mounts a different path :(
+    sudo mount --bind /mnt/c /c
+  fi
 fi
+
+# Manual config/overrides
+setopt appendhistory autocd extendedglob
 
 type kubectl > /dev/null && source <(kubectl completion zsh)
 type helm > /dev/null && source <(helm completion zsh)
