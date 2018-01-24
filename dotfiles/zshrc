@@ -18,6 +18,16 @@ if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
     # docker-compose mounts a different path :(
     sudo mount --bind /mnt/c /c
   fi
+
+  # Check ssh-agent config
+  if [ -z "$(pgrep ssh-agent)" ]; then
+    rm -rf /tmp/ssh-*
+    eval $(ssh-agent -s) > /dev/null
+  else
+    export SSH_AGENT_PID=$(pgrep ssh-agent)
+    export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name "agent.*")
+  fi
+  [[ "$(ssh-add -l)" == "The agent has no identities." ]] && ssh-add
 fi
 
 # Antigen plugin manager
