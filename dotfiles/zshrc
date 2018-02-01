@@ -85,6 +85,7 @@ alias kubevault-ares='kubevault --context ares --namespace devops-tools vault'
 alias fly-sah='fly -t sah'
 
 alias kubectl-hades='kubectl --context hades'
+alias helm-hades='helm --kube-context hades'
 alias kubevault-hades='kubevault --context hades --namespace devops-tools vault'
 
 alias kubectl-aurora='kubectl --context demerzel.k8s.infra.dreyhub.net'
