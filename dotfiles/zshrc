@@ -17,8 +17,6 @@ if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
   if ! mountpoint -q "/c"; then
     # docker-compose mounts a different path :(
     sudo mount --bind /mnt/c /c
-    # This allows proper Linux permissions in the docker mounts
-    sudo mount --bind ${HOME}/projects /c/Users/Tim/wsl
   fi
 
   # Check ssh-agent config
