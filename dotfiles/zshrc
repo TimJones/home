@@ -14,7 +14,7 @@ if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
 
   # Use Docker for Windows (HyperV machine)
   export DOCKER_HOST=localhost:2375
-  if [ ! -d "/c" ]; then
+  if ! mountpoint -q "/c"; then
     # docker-compose mounts a different path :(
     sudo mount --bind /mnt/c /c
     # This allows proper Linux permissions in the docker mounts
