@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -eu
+
+fsuuid="0F94-D3E2"
+
+mount_point="$(blkid -o list | awk -v fsuuid="${fsuuid}" '$5==fsuuid {print $4}')"
+
+[ -z "${mount_point}" ] && echo "Can not find mount point for filesystem UUID ${fsuuid}" && exit 1
+
+gpg --homedir="${mount_point}/gpg.master" $@
