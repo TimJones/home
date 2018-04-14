@@ -76,6 +76,8 @@ antigen apply
 # Manual config/overrides
 setopt appendhistory autocd extendedglob
 
+export GPG_TTY=$(tty)
+
 type kubectl > /dev/null && source <(kubectl completion zsh)
 type helm > /dev/null && source <(helm completion zsh)
 

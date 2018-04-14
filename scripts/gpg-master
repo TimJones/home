@@ -4,8 +4,10 @@ set -eu
 
 fsuuid="0F94-D3E2"
 
-mount_point="$(blkid -o list | awk -v fsuuid="${fsuuid}" '$5==fsuuid {print $4}')"
+mount_point="$(lsblk -o UUID,MOUNTPOINT | awk -v fsuuid="${fsuuid}" '$1==fsuuid {print $2}')"
 
 [ -z "${mount_point}" ] && echo "Can not find mount point for filesystem UUID ${fsuuid}" && exit 1
 
+killall gpg-agent &>/dev/null || true
 gpg --homedir="${mount_point}/gpg.master" $@
+killall gpg-agent &>/dev/null || true
