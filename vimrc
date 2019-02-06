@@ -45,7 +45,7 @@ filetype plugin indent on
 call plug#end()
 
 " Set colorscheme
-set background=light
+set background=dark
 colorscheme solarized
 
 " Configure airline to use powerline fonts

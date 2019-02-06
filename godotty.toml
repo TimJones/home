@@ -1,0 +1,87 @@
+[[dotfile]]
+  source = "gitconfig"
+  destination = "~/.gitconfig"
+
+[[dotfile]]
+  source = "gitglobalignore"
+  destination = "~/.gitglobalignore"
+
+[[dotfile]]
+  source = "zshrc"
+  destination = "~/.zshrc"
+
+[[dotfile]]
+  source = "zprofile"
+  destination = "~/.zprofile"
+
+[[dotfile]]
+  source = "vimrc"
+  destination = "~/.vimrc"
+
+[[dotfile]]
+  source = "profile"
+  destination = "~/.profile"
+
+[[dotfile]]
+  source = "xprofile"
+  destination = "~/.xprofile"
+
+[[dotfile]]
+  source = "Xresources"
+  destination = "~/.Xresources"
+
+[[dotfile]]
+  source = "ssh/config"
+  destination = "~/.ssh/config"
+
+[[dotfile]]
+  source = "minttyrc"
+  destination = "~/.minttyrc"
+
+[[dotfile]]
+  source = "config/dunst/dunstrc"
+  destination = "~/.config/dunst/dunstrc"
+
+[[dotfile]]
+  source = "config/i3/config"
+  destination = "~/.config/i3/config"
+
+[[dotfile]]
+  source = "config/i3blocks/config"
+  destination = "~/.config/i3blocks/config"
+
+[[dotfile]]
+  source = "config/i3blocks/config"
+  destination = "~/.config/i3blocks/config"
+
+[[dotfile]]
+  source = "config/i3blocks/volume"
+  destination = "~/.config/i3blocks/volume"
+
+[[dotfile]]
+  source = "config/i3blocks/wifi-name"
+  destination = "~/.config/i3blocks/wifi-name"
+
+[[dotfile]]
+  source = "bin/get-helm"
+  destination = "~/bin/get-helm"
+
+[[dotfile]]
+  source = "bin/get-kubectl"
+  destination = "~/bin/get-kubectl"
+
+[[dotfile]]
+  source = "bin/get-terraform"
+  destination = "~/bin/get-terraform"
+
+[[dotfile]]
+  source = "bin/gpg-master"
+  destination = "~/bin/gpg-master"
+
+[[dotfile]]
+  source = "bin/i3-get-window-criteria"
+  destination = "~/bin/i3-get-window-criteria"
+
+[[dotfile]]
+  source = "bin/ssh-copy-term"
+  destination = "~/bin/ssh-copy-term"

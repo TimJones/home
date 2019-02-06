@@ -61,7 +61,7 @@ EOB
 
 case "$TERM" in;
   *256color)
-    POWERLEVEL9K_COLOR_SCHEME=light
+    export POWERLEVEL9K_COLOR_SCHEME=${POWERLEVEL9K_COLOR_SCHEME:-dark}
     POWERLEVEL9K_PROMPT_ON_NEWLINE=true
     POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
     POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs history)
